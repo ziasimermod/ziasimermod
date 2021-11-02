@@ -1,0 +1,96 @@
+###MACS3 INTEGRATION WITH .BAM FILES FOR PEAK CALLING ANALYSIS FROM MAPPED READS
+
+##EXAMPLE DATASET
+
+#diet cell  sex     primer    sampleID
+#Con  Hi	  female	CTCTCTAC  D21-1676
+#Con	Low	  female	CAGAGAGG  D21-1677
+#HF	  Hi	  female	GCTACGCT  D21-1678
+#HF	  Low	  female	CGAGGCTG  D21-1679
+#Con	Hi	  male	  AAGAGGCA  D21-1680
+#Con	Low	  male	  GTAGAGGA 	D21-1681
+#HF	  Hi	  male	  GTCGTGAT 	D21-1682
+#HF	  Low	  male	  ACCACTGT  D21-1683
+#Con	Hi	  female	TGGATCTG 	D21-1684
+#Con	Low	  female	CCGTTTGT	D21-1685
+#HF	  Hi	  female	TGCTGGGT 	D21-1686
+#HF	  Low	  female	GAGGGGTT 	D21-1687
+#Con	Hi	  male	  AGGTTGGG 	D21-1688
+#Con	Low	  male	  GTGTGGTG 	D21-1689
+#HF	  Hi	  male	  TGGGTTTC 	D21-1690
+#HF	  Low	  male	  TGGTCACA 	D21-1691
+
+#CALL POOLED CELLS
+
+#HFD Stem Cell Pooled Peaks
+macs3 callpeak -f BAMPE -t D21-1678.sorted.noDups.filt.noMT.bam D21-1682.sorted.noDups.filt.noMT.bam D21-1686.sorted.noDups.filt.noMT.bam D21-1690.sorted.noDups.filt.noMT.bam -B -g mm -n stemcellHFD
+
+#CONTROL Stem Cell Pooled Peaks
+macs3 callpeak -f BAMPE -t D21-1676.sorted.noDups.filt.noMT.bam D21-1680.sorted.noDups.filt.noMT.bam D21-1684.sorted.noDups.filt.noMT.bam D21-1688.sorted.noDups.filt.noMT.bam -B -g mm -n stemcellCONTROL
+
+#ALL Stem Cell Pooled Peaks
+macs3 callpeak -f BAMPE -t D21-1676.sorted.noDups.filt.noMT.bam D21-1678.sorted.noDups.filt.noMT.bam D21-1680.sorted.noDups.filt.noMT.bam D21-1682.sorted.noDups.filt.noMT.bam D21-1684.sorted.noDups.filt.noMT.bam D21-1686.sorted.noDups.filt.noMT.bam D21-1688.sorted.noDups.filt.noMT.bam D21-1690.sorted.noDups.filt.noMT.bam -B -g mm -n stemcellALL
+
+#HFD Progenitor Cell Pooled Peaks
+macs3 callpeak -f BAMPE -t D21-1679.sorted.noDups.filt.noMT.bam D21-1683.sorted.noDups.filt.noMT.bam D21-1687.sorted.noDups.filt.noMT.bam D21-1691.sorted.noDups.filt.noMT.bam -B -g mm -n progenitorcellHFD
+
+#CONTROL Progenitor Cell Pooled Peaks
+macs3 callpeak -f BAMPE -t D21-1677.sorted.noDups.filt.noMT.bam D21-1681.sorted.noDups.filt.noMT.bam D21-1685.sorted.noDups.filt.noMT.bam D21-1689.sorted.noDups.filt.noMT.bam -B -g mm -n progenitorcellCONTROL
+
+#ALL Progenitor Cell Pooled Peaks
+macs3 callpeak -f BAMPE -t D21-1677.sorted.noDups.filt.noMT.bam D21-1679.sorted.noDups.filt.noMT.bam D21-1681.sorted.noDups.filt.noMT.bam D21-1683.sorted.noDups.filt.noMT.bam D21-1685.sorted.noDups.filt.noMT.bam D21-1687.sorted.noDups.filt.noMT.bam D21-1689.sorted.noDups.filt.noMT.bam D21-1691.sorted.noDups.filt.noMT.bam -B -g mm -n progenitorcellALL
+
+##CALLING INDIVIDUAL PEAKS
+
+#module load python/3.7.1
+##ACTIVATE PYTHON -VENV `MACS3`## USE: source MACS3/bin/activate
+sample=D21-1676
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1677
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1678
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1679
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1680
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1681
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1682
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1683
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1684
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1685
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1686
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1687
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1688
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1689
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1690
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+sample=D21-1691
+macs3 callpeak -f BAMPE -t $sample.sorted.noDups.filt.noMT.bam -B -g mm -n $sample
+
+##SAMPLE LIST
+sample=D21-1676
+sample=D21-1677
+sample=D21-1678
+sample=D21-1679
+sample=D21-1680
+sample=D21-1681
+sample=D21-1682
+sample=D21-1683
+sample=D21-1684
+sample=D21-1685
+sample=D21-1686
+sample=D21-1687
+sample=D21-1688
+sample=D21-1689
+sample=D21-1690
+sample=D21-1691
