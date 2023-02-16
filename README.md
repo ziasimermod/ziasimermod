@@ -1,6 +1,6 @@
-- 👋 Hi, I’m @ziasimermod, Dominic R. Saiz
+- Author: Saiz, Dominic R.
 - 
-- I am currently using several bioinformatic pipelines to go through ATAC-seq data
+- Objective: General set-up for ATAC-seq, RNA-seq, & CUT&Tag data analysis
 - email: dsaiz@asu.edu
 
 <!---
